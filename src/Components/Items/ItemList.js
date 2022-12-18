@@ -1,7 +1,7 @@
-import Item from "./Item";
-import Card from "./UI/Card";
+import ItemsChart from "./ItemsChart";
+import Card from "../UI/Card";
 import "./ItemList.css";
-import ExpenseFilter from "./NewItem/ExpenseFilter";
+import ExpenseFilter from "../NewItem/ExpenseFilter";
 import { useState } from "react";
 import ItemsListDisplay from "./ItemsListDisplay"
 const ItemList = function (props) {
@@ -24,6 +24,7 @@ const ItemList = function (props) {
           selected={selectedYear}
           onYearChange={handleYearChange}
         />
+        <ItemsChart items = {filteredItems}/>
         <ItemsListDisplay filteredItems = {filteredItems}/>
       </Card>
     </div>

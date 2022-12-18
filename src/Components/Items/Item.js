@@ -1,5 +1,5 @@
 import "./Item.css"
-import Card from "./UI/Card"
+import Card from "../UI/Card"
 import { useState } from "react";
 import ItemDate
  from "./ItemDate";

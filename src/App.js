@@ -1,8 +1,6 @@
-import logo from "./logo.svg";
 import { useState } from "react";
 import "./App.css";
-import Item from "./Components/Item";
-import ItemList from "./Components/ItemList";
+import ItemList from "./Components/Items/ItemList";
 import NewItem from "./Components/NewItem/NewItem";
 const defaultItems = [
   {
@@ -37,7 +35,6 @@ function App() {
   }
   return (
     <div className="App">
-    <></>
       <NewItem onNewItemChange = {handleNewItemChange}/>
       <ItemList itemsArray = {itemList}/>
       

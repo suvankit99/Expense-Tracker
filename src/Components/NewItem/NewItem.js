@@ -1,4 +1,3 @@
-import react from "react";
 import "./NewItem.css";
 import ExpenseForm from "./ExpenseForm";
 import { useState } from "react";
