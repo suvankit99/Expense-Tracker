@@ -14,9 +14,11 @@ const ItemsChart = (props) => {
     { label: "Nov", value: 0 },
     { label: "Dec", value: 0 },
   ];
-  for (const expense of props.items) {
-    const expenseMonth = expense.date.getMonth(); // starting at 0 => January => 0
-    ChartData[expenseMonth].value += expense.amount;
+  
+  const itemsArray = props.items ;
+  for(let item of itemsArray){
+    const month = item.date.getMonth() ;
+    ChartData[month].value += item.price ;
   }
   return <Chart dataPoints = {ChartData}/>;
 };
