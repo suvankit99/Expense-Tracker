@@ -33,8 +33,18 @@ function App() {
     });
     
   }
+  const imgStyle = {
+    height : "150px",
+    width : "150px" ,
+    align : "center",
+    marginTop : "20px" ,
+    backgroundColor : "#FFF",
+    padding:"20px"
+  }
   return (
     <div className="App">
+    <img src={require("./budget.png")} alt = "budget" width = "150" height = "150" style = {imgStyle}></img>
+      
       <NewItem onNewItemChange = {handleNewItemChange}/>
       <ItemList itemsArray = {itemList}/>
       

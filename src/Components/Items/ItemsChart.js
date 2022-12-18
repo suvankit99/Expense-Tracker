@@ -1,4 +1,6 @@
-import Chart from "../Charts/Chart"
+import Chart from "../Charts/Chart";
+import MyLineChart from "../MyCharts/MyLineChart";
+import "../MyCharts/MyLineChart.css"
 const ItemsChart = (props) => {
   const ChartData = [
     { label: "Jan", value: 0 },
@@ -14,13 +16,18 @@ const ItemsChart = (props) => {
     { label: "Nov", value: 0 },
     { label: "Dec", value: 0 },
   ];
-  
-  const itemsArray = props.items ;
-  for(let item of itemsArray){
-    const month = item.date.getMonth() ;
-    ChartData[month].value += item.price ;
+
+  const itemsArray = props.items;
+  for (let item of itemsArray) {
+    const month = item.date.getMonth();
+    ChartData[month].value += item.price;
   }
-  return <Chart dataPoints = {ChartData}/>;
+  return (
+    <div>
+      <Chart dataPoints={ChartData} />
+      <MyLineChart data = {ChartData} />
+    </div>
+  );
 };
 
 export default ItemsChart;
