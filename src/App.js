@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
-
+import logo from "./logo.svg";
+import { useState } from "react";
+import "./App.css";
+import Item from "./Components/Item";
+import ItemList from "./Components/ItemList";
+import NewItem from "./Components/NewItem/NewItem";
+const defaultItems = [
+  {
+    key : 1 ,
+    date: new Date(2022, 12, 6),
+    name: "Car",
+    price: 150,
+  },
+  {
+    key : 2 , 
+    date: new Date(2022, 11, 7),
+    name: "Fruits",
+    price: 20,
+  },
+  {
+    key : 3 ,
+    date: new Date(2022, 10, 8),
+    name: "Vegetables",
+    price: 125,
+  },
+];
 function App() {
+  const [itemList , setItemList] = useState(defaultItems) ;
+  const handleNewItemChange = (newData) => {
+    const enteredData = {
+      ...newData , id : Math.random().toString ,
+    }
+    setItemList((prevState) => {
+      return [...prevState , enteredData] 
+    });
+    
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NewItem onNewItemChange = {handleNewItemChange}/>
+      <ItemList itemsArray = {itemList}/>
+      
     </div>
   );
 }
